@@ -1,10 +1,10 @@
 name: 'Unofficial Telefonistka GitHub Action'
 description: 'Safe and Controlled GitOps Promotion Across Environments/Failure-Domains https://github.com/wayfair-incubator/telefonistka'
-# inputs:
-  # who-to-greet:  # id of input
-    # description: 'Who to greet'
-    # required: true
-    # default: 'World'
+inputs:
+  repo-token:
+    description: 'The GitHub token used to manage labels'
+    required: false
+    default: ${{ github.token }}
 # outputs:
   # time: # id of output
     # description: 'The time we greeted you'
@@ -16,5 +16,5 @@ runs:
     - event
     # - ${{ inputs.who-to-greet }}
   env:
-    GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    APPROVER_GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    GITHUB_OAUTH_TOKEN: ${{ inputs.repo-token }}
+    APPROVER_GITHUB_OAUTH_TOKEN: ${{ inputs.repo-token }}
