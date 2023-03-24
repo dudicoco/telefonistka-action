@@ -11,7 +11,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://obenozer412/telefonistka:v0.0.8'
-  entrypoint: /telefonistka/bin/telefonistka`
+  entrypoint: /telefonistka/bin/telefonistka
   args:
     - event
     # - ${{ inputs.who-to-greet }}
