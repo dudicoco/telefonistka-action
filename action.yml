@@ -1,15 +1,20 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
-inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+name: 'Unofficial Telefonistka GitHub Action'
+description: 'Safe and Controlled GitOps Promotion Across Environments/Failure-Domains https://github.com/wayfair-incubator/telefonistka'
+# inputs:
+  # who-to-greet:  # id of input
+    # description: 'Who to greet'
+    # required: true
+    # default: 'World'
+# outputs:
+  # time: # id of output
+    # description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://obenozer412/telefonistka:v0.0.8'
+  entrypoint: /telefonistka/bin/telefonistka`
   args:
-    - ${{ inputs.who-to-greet }}
+    - event
+    # - ${{ inputs.who-to-greet }}
+  env:
+    GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    APPROVER_GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
