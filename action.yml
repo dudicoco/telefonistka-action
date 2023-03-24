@@ -10,7 +10,7 @@ inputs:
     # description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'docker://obenozer412/telefonistka:v0.0.8'
+  image: 'docker://obenozer412/telefonistka:v0.0.10'
   entrypoint: /telefonistka/bin/telefonistka
   args:
     - event
